@@ -28,14 +28,12 @@ dtbo-$(CONFIG_ARCH_ROCKCHIP) += \
 	rock-5b-sata.dtbo \
 	rockchip-rk3588-opp-oc-24ghz.dtbo
 
-scr-$(CONFIG_ARCH_ROCKCHIP) += \
-	rk3588-fixup.scr
 
 dtbotxt-$(CONFIG_ARCH_ROCKCHIP) += \
 	README.rockchip-overlays
 
-targets += $(dtbo-y) $(scr-y) $(dtbotxt-y)
+targets += $(dtbo-y) $(dtbotxt-y)
 
-always-y		:= $(dtbo-y) $(scr-y) $(dtbotxt-y)
+always-y		:= $(dtbo-y) $(dtbotxt-y)
 clean-files		:= *.dtbo *.scr
 
