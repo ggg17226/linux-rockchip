@@ -939,6 +939,12 @@
 };
 
 &pinctrl {
+	leds_gpio {
+		leds_rgb: leds-rgb {
+		        rockchip,pins = <3 RK_PA6 RK_FUNC_GPIO &pcfg_pull_up>,
+					<3 RK_PB1 RK_FUNC_GPIO &pcfg_pull_up>;
+		};
+	};
 	hdmi {
 		hdmirx_det: hdmirx-det {
 			rockchip,pins = <1 RK_PC6 RK_FUNC_GPIO &pcfg_pull_up>;
@@ -1294,22 +1300,6 @@
 	status = "okay";
 };
 
-&sdio {
-	max-frequency = <150000000>;
-	supports-sdio;
-	bus-width = <4>;
-	disable-wp;
-	cap-sd-highspeed;
-	cap-sdio-irq;
-	keep-power-in-suspend;
-	mmc-pwrseq = <&sdio_pwrseq>;
-	non-removable;
-	num-slots = <1>;
-	pinctrl-names = "default";
-	pinctrl-0 = <&sdiom0_pins>;
-	sd-uhs-sdr104;
-	status = "okay";
-};
 
 
 &soc_thermal {
@@ -1360,42 +1350,42 @@
 	cooling-maps {
 		map0 {
 			trip = <&trip0>;
-			cooling-device = <&fan0 0 1>;
+			cooling-device = <&fan 0 1>;
 			contribution = <1024>;
 		};
 		map1 {
 			trip = <&trip1>;
-			cooling-device = <&fan0 1 2>;
+			cooling-device = <&fan 1 2>;
 			contribution = <1024>;
 		};
 		map2 {
 			trip = <&trip2>;
-			cooling-device = <&fan0 2 3>;
+			cooling-device = <&fan 2 3>;
 			contribution = <1024>;
 		};
 		map3 {
 			trip = <&trip3>;
-			cooling-device = <&fan0 3 4>;
+			cooling-device = <&fan 3 4>;
 			contribution = <1024>;
 		};
 		map4 {
 			trip = <&trip4>;
-			cooling-device = <&fan0 4 5>;
+			cooling-device = <&fan 4 5>;
 			contribution = <1024>;
 		};
 		map5 {
 			trip = <&trip5>;
-			cooling-device = <&fan0 5 6>;
+			cooling-device = <&fan 5 6>;
 			contribution = <1024>;
 		};
 		map6 {
 			trip = <&trip6>;
-			cooling-device = <&fan0 6 7>;
+			cooling-device = <&fan 6 7>;
 			contribution = <1024>;
 		};
 		map7 {
 			trip = <&pcritical>;
-			cooling-device = <&fan0 7 8>;
+			cooling-device = <&fan 7 8>;
 			contribution = <1024>;
 		};
 	};
